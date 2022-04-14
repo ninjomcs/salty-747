@@ -6,8 +6,6 @@ on:
 
 jobs:
   build:
-    # Prevent running this on forks
-    if: github.repository_owner == 'saltysimulations'
     runs-on: ubuntu-latest
     env:
       SALTY_PRODUCTION_BUILD: 1
