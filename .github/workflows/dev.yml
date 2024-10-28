@@ -7,7 +7,7 @@ on:
 jobs:
   build:
     # Prevent running this on forks
-    if: github.repository_owner == 'saltysimulations'
+    if: github.repository_owner == 'ninjomcs'
     runs-on: ubuntu-latest
     env:
       SALTY_PRODUCTION_BUILD: 1
@@ -92,8 +92,3 @@ jobs:
                 --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}'
             done
           fi
-      - name: Upload installer zip assets
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          hub release edit $(find build-modules -type f -printf "-a %p ") -m "" "${{ env.INSTALLER_PRE_RELEASE_TAG }}"
